@@ -3,5 +3,3 @@
 FROM alpine:3.18
 
 RUN apk add can-utils
-
-CMD ["candump", "can0"]

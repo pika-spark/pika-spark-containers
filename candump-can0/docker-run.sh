@@ -26,4 +26,4 @@ ip link set can0 up
 
 sudo -u fio ifconfig can0
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_candump_can0
+sudo -u fio sudo docker run -it -u 0 --network host pika_spark_candump_can0 candump can0
