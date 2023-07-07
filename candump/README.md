@@ -10,7 +10,7 @@ This Docker container dumps all received CAN frames on `stdout`.
 ### How-to-build/run
 ```bash
 git clone https://github.com/pika-spark/pika-spark-containers
-cd pika-spark-containers/candump-can0
+cd pika-spark-containers/candump
 ./docker-build.sh
 sudo ./docker-run.sh can0 | can1 [bitrate]
 ```
