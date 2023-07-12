@@ -9,5 +9,8 @@ RUN apk add git g++ make cmake linux-headers && \
     mkdir build && \
     cd build && \
     cmake -DBUILD_EXAMPLES=ON .. && \
-    make && \
-    export PATH="$PATH:/tmp/libdynamixelplusplus/build/examples/example-01-ping"
+    make
+
+COPY start.sh /
+RUN chmod ugo+x /start.sh
+ENTRYPOINT ["/start.sh"]

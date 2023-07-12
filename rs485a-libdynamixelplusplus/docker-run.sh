@@ -9,4 +9,4 @@ fi
 
 sudo chmod ugo+rw /dev/ttymxc1
 
-sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 pika_spark_rs485a_libdynamixelplusplus example-01-ping /dev/ttymxc1 2000000
+sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 pika_spark_rs485a_libdynamixelplusplus
