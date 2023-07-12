@@ -7,6 +7,6 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-sudo chmod ugo+rw /dev/ttyxmc1
+sudo chmod ugo+rw /dev/ttymxc1
 
-sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 alpine:latest sh
+sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 pika_spark_rs485a_libdynamixelplusplus sh
