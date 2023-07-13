@@ -15,4 +15,4 @@ fi
 
 sudo chmod ugo+rw /dev/ttymxc1
 
-sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 pika_spark_rs485a_minicom minicom -D /dev/ttymxc1 -b $BAUDRATE
+sudo -u fio docker run -it -u 0 --device /dev/ttymxc1 pika_spark_rs485a_minicom minicom -D /dev/ttymxc1 -b $BAUDRATE /root/.minirc
