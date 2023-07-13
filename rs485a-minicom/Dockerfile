@@ -4,4 +4,4 @@ FROM alpine:3.18
 
 RUN apk add minicom
 
-COPY .minirc /root
+COPY minirc.dfl /etc/minirc.dfl
