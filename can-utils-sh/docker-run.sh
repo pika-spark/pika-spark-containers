@@ -51,4 +51,4 @@ ip link set $CAN up
 
 sudo -u fio ifconfig $CAN
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_cansend_can0 sh
+sudo -u fio sudo docker run -it -u 0 --network host pika_spark_can_utils_sh sh
