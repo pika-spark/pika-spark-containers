@@ -7,4 +7,4 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-docker run -it -u 0 --privileged -v /sys/class/i2c-dev:/sys/class/i2c-dev pika_spark_eeprom_dump sh
+docker run -it -u 0 --privileged -v /sys/class/i2c-dev:/sys/class/i2c-dev pika_spark_eeprom_dump
