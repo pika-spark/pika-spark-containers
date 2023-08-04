@@ -10,7 +10,7 @@ RUN cd /tmp && \
     mkdir build && \
     cd build && \
     cmake .. && \
-    make
+    make install
 
 COPY start.sh /
 RUN chmod ugo+x /start.sh
