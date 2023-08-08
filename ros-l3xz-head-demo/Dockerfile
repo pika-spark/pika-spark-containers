@@ -31,4 +31,4 @@ RUN . /opt/ros/humble/setup.sh && \
     colcon_ws build --symlink-install && \
     . install/setup.sh
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["/tmp/colcon_ws/start.sh"]
