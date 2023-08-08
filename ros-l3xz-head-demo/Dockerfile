@@ -1,4 +1,4 @@
-FROM docker.io/arm64v8/ros:foxy-ros-base
+FROM docker.io/arm64v8/ros:humble-ros-base
 
 RUN mkdir -p /tmp/colcon/src
 
