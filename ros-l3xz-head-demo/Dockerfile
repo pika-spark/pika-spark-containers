@@ -1,11 +1,11 @@
 FROM docker.io/arm64v8/ros:humble-ros-base
 
-RUN mkdir -p /tmp/colcon/src
+RUN mkdir -p /tmp/colcon_ws/src
 
-COPY demo.py /tmp/colcon
-COPY demo-bridge.py /tmp/colcon
+COPY demo.py /tmp/colcon_ws
+COPY demo-bridge.py /tmp/colcon_ws
 
-WORKDIR /tmp/colcon/src
+WORKDIR /tmp/colcon_ws/src
 
 RUN git clone https://github.com/107-systems/l3xz_head_ctrl && \
     cd l3xz_head_ctrl && \
@@ -23,8 +23,8 @@ RUN git clone https://github.com/107-systems/ros2_heartbeat && \
     cd ros2_heartbeat && \
     git reset --hard 486cf6a77aa1bc983fef8678a6138b8e4d4dc9a7
 
-WORKDIR /tmp/colcon
+WORKDIR /tmp/colcon_ws
 
 RUN . /opt/ros/humble/setup.sh && \
-    colcon build --symlink-install && \
+    colcon_ws build --symlink-install && \
     . install/setup.sh
