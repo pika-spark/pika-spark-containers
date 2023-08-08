@@ -5,7 +5,7 @@ RUN mkdir -p /tmp/colcon_ws/src
 COPY demo.py /tmp/colcon_ws
 COPY demo-bridge.py /tmp/colcon_ws
 COPY start.sh /tmp/colcon_ws
-RUN chmod ugo+x /start.sh
+RUN chmod ugo+x /tmp/colcon_ws/start.sh
 
 WORKDIR /tmp/colcon_ws/src
 
