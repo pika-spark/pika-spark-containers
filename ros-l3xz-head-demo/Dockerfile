@@ -4,6 +4,8 @@ RUN mkdir -p /tmp/colcon_ws/src
 
 COPY demo.py /tmp/colcon_ws
 COPY demo-bridge.py /tmp/colcon_ws
+COPY start.sh /tmp/colcon_ws
+RUN chmod ugo+x /start.sh
 
 WORKDIR /tmp/colcon_ws/src
 
@@ -29,6 +31,4 @@ RUN . /opt/ros/humble/setup.sh && \
     colcon_ws build --symlink-install && \
     . install/setup.sh
 
-COPY start.sh /tmp/colcon_ws
-RUN chmod ugo+x /start.sh
 ENTRYPOINT ["/start.sh"]
