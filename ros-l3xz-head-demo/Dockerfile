@@ -28,3 +28,7 @@ WORKDIR /tmp/colcon_ws
 RUN . /opt/ros/humble/setup.sh && \
     colcon_ws build --symlink-install && \
     . install/setup.sh
+
+COPY start.sh /tmp/colcon_ws
+RUN chmod ugo+x /start.sh
+ENTRYPOINT ["/start.sh"]
