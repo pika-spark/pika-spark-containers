@@ -1,11 +1,12 @@
 FROM docker.io/arm64v8/ros:humble-ros-base
 
+COPY start.sh /
+RUN chmod ugo+x /start.sh
+
 RUN mkdir -p /tmp/colcon_ws/src
 
 COPY demo.py /tmp/colcon_ws
 COPY demo-bridge.py /tmp/colcon_ws
-COPY start.sh /tmp/colcon_ws
-RUN chmod ugo+x /tmp/colcon_ws/start.sh
 
 WORKDIR /tmp/colcon_ws/src
 
@@ -28,7 +29,6 @@ RUN git clone https://github.com/107-systems/ros2_heartbeat && \
 WORKDIR /tmp/colcon_ws
 
 RUN . /opt/ros/humble/setup.sh && \
-    colcon_ws build --symlink-install && \
-    . install/setup.sh
+    colcon_ws build --symlink-install
 
-ENTRYPOINT ["/tmp/colcon_ws/start.sh"]
+ENTRYPOINT ["/start.sh"]
