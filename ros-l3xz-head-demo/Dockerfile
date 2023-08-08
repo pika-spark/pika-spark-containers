@@ -2,6 +2,8 @@ FROM docker.io/arm64v8/ros:humble-ros-base
 
 RUN mkdir -p /tmp/colcon/src
 
+COPY demo.py /tmp/colcon
+
 RUN cd /tmp/colcon/src && \
     git clone https://github.com/107-systems/l3xz_head_ctrl && \
     cd l3xz_head_ctrl && \
