@@ -2,8 +2,6 @@ FROM docker.io/arm64v8/ros:humble-ros-base
 
 RUN mkdir -p /tmp/colcon/src
 
-RUN . /opt/ros/humble/setup.sh
-
 RUN cd /tmp/colcon/src && \
     git clone https://github.com/107-systems/l3xz_head_ctrl && \
     cd l3xz_head_ctrl && \
@@ -15,5 +13,6 @@ RUN cd /tmp/colcon/src && \
     git reset --hard 96d0dd72ebd151e597028125a3ad1693ac1b9d43
 
 RUN cd /tmp/colcon && \
+    source /opt/ros/humble/setup.bash && \
     colcon build --symlink-install && \
-    . /opt/dev_ws/install/setup.sh
+    . install/setup.sh
