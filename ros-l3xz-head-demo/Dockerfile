@@ -3,6 +3,7 @@ FROM docker.io/arm64v8/ros:humble-ros-base
 RUN mkdir -p /tmp/colcon/src
 
 COPY demo.py /tmp/colcon
+COPY demo-bridge.py /tmp/colcon
 
 WORKDIR /tmp/colcon/src
 
