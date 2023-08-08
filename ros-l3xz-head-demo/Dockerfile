@@ -13,6 +13,6 @@ RUN cd /tmp/colcon/src && \
     git reset --hard 96d0dd72ebd151e597028125a3ad1693ac1b9d43
 
 RUN cd /tmp/colcon && \
-    . /opt/ros/humble/setup.bash && \
+    . /opt/ros/humble/setup.sh && \
     colcon build --symlink-install && \
     . install/setup.sh
