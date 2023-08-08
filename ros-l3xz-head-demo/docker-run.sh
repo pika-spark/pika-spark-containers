@@ -14,4 +14,4 @@ docker run -it \
    --privileged \
    --network host \
    --device /dev/ttymxc1 \
-   pika_spark_ros_l3xz_head_demo sh
+   pika_spark_ros_l3xz_head_demo
