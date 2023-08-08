@@ -7,4 +7,11 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-docker run -it -u 0 --privileged --network host pika_spark_ros_l3xz_head_demo sh
+chmod ugo+rw /dev/ttymxc1
+
+docker run -it \
+   -u 0 \
+   --privileged \
+   --network host \
+   --device /dev/ttymxc1 \
+   pika_spark_ros_l3xz_head_demo sh
