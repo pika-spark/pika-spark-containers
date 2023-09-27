@@ -63,4 +63,7 @@ ip link set $CAN up
 
 sudo -u fio ifconfig $CAN
 
+echo "CAN_MTU     = $CAN_MTU"
+echo "CAN_NODE_ID = $CAN_NODE_ID"
+
 sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
