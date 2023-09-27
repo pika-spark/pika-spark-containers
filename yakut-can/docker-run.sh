@@ -10,7 +10,7 @@ fi
 if [ "$#" -ge 1 ]; then
   CAN=$1
 else
-  echo "Usage: sudo ./docker-run.sh can0 | can1 [bitrate]"
+  echo "Usage: sudo ./docker-run.sh can0 | can1 [bitrate] [mtu] [node_id]"
   exit 1
 fi
 
@@ -18,6 +18,18 @@ if [ "$#" -eq 2 ]; then
   CAN_BITRATE=$2
 else
   CAN_BITRATE=250000
+fi
+
+if [ "$#" -eq 3 ]; then
+  CAN_MTU=$3
+else
+  CAN_MTU=8
+fi
+
+if [ "$#" -eq 4 ]; then
+  CAN_NODE_ID=$4
+else
+  CAN_NODE_ID=42
 fi
 
 GPIO_CAN0_STBY=160
@@ -51,4 +63,4 @@ ip link set $CAN up
 
 sudo -u fio ifconfig $CAN
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',8),42)" monitor
+sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
