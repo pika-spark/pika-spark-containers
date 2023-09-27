@@ -51,4 +51,9 @@ ip link set $CAN up
 
 sudo -u fio ifconfig $CAN
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can
+export UAVCAN__CAN__IFACE='socketcan:can0'
+export UAVCAN__CAN__MTU=8
+export UAVCAN__NODE__ID=$(yakut accommodate)  # Pick an unoccupied node-ID automatically for this shell session.
+echo "Auto-selected node-ID for this session: $UAVCAN__NODE__ID"
+
+sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut monitor

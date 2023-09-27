@@ -10,7 +10,4 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN pip install yakut
 
 RUN cd /opt && git clone https://github.com/OpenCyphal/public_regulated_data_types
-
-COPY setup_yakut.sh /
-RUN chmod ugo+x /setup_yakut.sh
-ENTRYPOINT ["/setup_yakut.sh"]
+ENV CYPHAL_PATH="/opt/public_regulated_data_types"
