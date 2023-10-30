@@ -66,4 +66,10 @@ sudo -u fio ifconfig $CAN
 echo "CAN_MTU     = $CAN_MTU"
 echo "CAN_NODE_ID = $CAN_NODE_ID"
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
+COMPILED_DSDL_PATH="/home/fio/.pycyphal"
+
+if [ ! -d $COMPILED_DSDL_PATH ]; then
+  mkdir $COMPILED_DSDL_PATH
+fi
+
+sudo -u fio sudo docker run -it -u 0 --network host -v $COMPILED_DSDL_PATH:$COMPILED_DSDL_PATH pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
