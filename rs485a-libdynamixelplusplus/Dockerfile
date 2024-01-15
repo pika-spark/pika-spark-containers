@@ -11,6 +11,4 @@ RUN apk add git g++ make cmake linux-headers && \
     cmake -DBUILD_EXAMPLES=ON .. && \
     make
 
-COPY start.sh /
-RUN chmod ugo+x /start.sh
-ENTRYPOINT ["/start.sh"]
+ENV PATH='$PATH:/tmp/libdynamixelplusplus/build'
