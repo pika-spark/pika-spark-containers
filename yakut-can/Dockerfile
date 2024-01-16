@@ -1,5 +1,4 @@
 # Copyright Alexander Entinger, MSc / LXRobotics GmbH
-# This docker file allows building and running of a container which dumps all received CAN frames on `stdout`.
 FROM debian:stable-slim
 RUN apt-get update && \
     apt-get install -y python3-full python3-venv python3-pip git && \
