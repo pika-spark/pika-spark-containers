@@ -8,9 +8,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /tmp/colcon_ws/src
 WORKDIR /tmp/colcon_ws/src
-RUN git clone --recursive https://github.com/pika-spark/pika-spark-bno085-driver && \
-    cd pika-spark-bno085-driver && \
-    git checkout ros
+RUN git clone --recursive https://github.com/pika-spark/pika-spark-bno085-driver
 
 WORKDIR /tmp/colcon_ws
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
