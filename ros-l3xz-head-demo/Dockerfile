@@ -28,7 +28,6 @@ RUN git clone https://github.com/107-systems/ros2_heartbeat && \
 
 WORKDIR /tmp/colcon_ws
 
-RUN . /opt/ros/humble/setup.sh && \
-    colcon_ws build --symlink-install
+RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
 
 ENTRYPOINT ["/start.sh"]
