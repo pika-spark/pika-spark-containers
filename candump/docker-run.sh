@@ -52,4 +52,4 @@ ifconfig $CAN txqueuelen 1000
 
 sudo -u fio ifconfig $CAN
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_candump_can0 candump can0
+sudo -u fio sudo docker run -it -u 0 --network host pika_spark_candump candump $CAN
