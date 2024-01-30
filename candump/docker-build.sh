@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 IFS=$'\n\t'
-docker build --pull --no-cache --tag pika_spark_candump_can0 .
+docker build --pull --no-cache --tag pika_spark_candump .
