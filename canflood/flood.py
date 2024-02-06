@@ -24,12 +24,12 @@ try:
     cnt = 0
     while True:
         message = can.Message(
-            arbitration_id=0xDABBAD0, data=[cnt % 0xFF,0,0,0,0,0,0,0], is_extended_id=True
+            arbitration_id=0xDABBAD0, data=[cnt % 0xFF,0,0,0,0xDE,0xAD,0xC0,0xDE], is_extended_id=True
         )
-        cnt += 1
 
         try:
             bus.send(message)
+            cnt += 1
         except can.CanError:
             print("Message NOT sent")
         
