@@ -37,4 +37,4 @@ try:
     
    
 except KeyboardInterrupt:
-    print('\n\rKeyboard interrtupt')
+    print('\n\rKeyboard interrupt')
