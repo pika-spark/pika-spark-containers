@@ -14,19 +14,19 @@ else
   exit 1
 fi
 
-if [ "$#" -eq 2 ]; then
+if [ "$#" -ge 2 ]; then
   CAN_BITRATE=$2
 else
   CAN_BITRATE=250000
 fi
 
-if [ "$#" -eq 3 ]; then
+if [ "$#" -ge 3 ]; then
   CAN_MTU=$3
 else
   CAN_MTU=8
 fi
 
-if [ "$#" -eq 4 ]; then
+if [ "$#" -ge 4 ]; then
   CAN_NODE_ID=$4
 else
   CAN_NODE_ID=42

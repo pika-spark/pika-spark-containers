@@ -14,7 +14,7 @@ else
   exit 1
 fi
 
-if [ "$#" -eq 2 ]; then
+if [ "$#" -ge 2 ]; then
   CAN_BITRATE=$2
 else
   CAN_BITRATE=250000
