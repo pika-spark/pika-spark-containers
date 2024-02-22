@@ -10,7 +10,7 @@ fi
 if [ "$#" -ge 1 ]; then
   CAN=$1
 else
-  echo "Usage: sudo ./docker-run.sh can0 | can1 [bitrate] [mtu] [node_id]"
+  echo "Usage: sudo ./docker-run.sh can0 | can1 [bitrate] [delay]"
   exit 1
 fi
 
