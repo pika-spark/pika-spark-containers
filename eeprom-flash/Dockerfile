@@ -12,7 +12,7 @@ RUN cd /tmp && \
     cmake .. && \
     make install
 
-COPY eeprom_settings.txt /
+COPY eeprom_settings_default.txt /
 
 RUN eepmake eeprom_settings.txt eeprom_settings.eep
 
