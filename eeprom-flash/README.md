@@ -7,4 +7,6 @@ For more information please take a look at [How-to access Pika Spark’s EEPROM 
 ```bash
 ./docker-build.sh
 sudo ./docker-run.sh eeprom_settings_default.txt
+# or
+sudo ./docker-run.sh eeprom_settings_pika_spark.txt
 ```
