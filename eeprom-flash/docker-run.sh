@@ -31,6 +31,6 @@ echo 0 > /sys/class/gpio/gpio$GPIO_EEPROM_WRITE_PROTECT/value
 
 docker run -it -u 0 \
   --privileged \
-  -v ${PWD}:/tmp/portenta-x8-eeprom-utils
+  -v ${PWD}:/tmp \
   -v /sys/class/i2c-dev:/sys/class/i2c-dev \
-  pika_spark_eeprom_flash "$1"
+  pika_spark_eeprom_flash $1
