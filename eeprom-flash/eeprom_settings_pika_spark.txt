@@ -31,7 +31,7 @@ vendor "LXRobotics"
 product "Pika Spark - Micro Robot Control System"
 
 # Custom binary data
-# echo "LXROBO000001PISPR11X" | hexdump -C
+# echo "LXROBO000001PISPR11X" | hexdump -C -n 32
 custom_data
 4c 58 52 4f 42 4f 30 30  30 30 30 31 50 49 53 50 52 31 31 58 0a
 end

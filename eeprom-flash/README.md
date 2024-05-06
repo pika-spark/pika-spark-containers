@@ -2,3 +2,9 @@
 :sparkles: `eeprom-flash`
 =========================
 For more information please take a look at [How-to access Pika Spark’s EEPROM via I2C](https://pika-spark.io/tutorials/how-to-access-eeprom-via-i2c/).
+
+#### How-to-use
+```bash
+./docker-build.sh
+sudo ./docker-run.sh eeprom_settings_default.txt
+```
