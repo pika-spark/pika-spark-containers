@@ -32,39 +32,21 @@ else
   CAN_NODE_ID=42
 fi
 
-GPIO_CAN0_STBY=160
-GPIO_CAN1_STBY=161
-
-if [ "$CAN" = "can0" ]; then
-  GPIO_CAN_STBY=$GPIO_CAN0_STBY
-elif [ "$CAN" = "can1" ]; then
-  GPIO_CAN_STBY=$GPIO_CAN1_STBY
-else
-  echo "Error, invalid can interface specified"
-  exit 1
-fi
-
 echo "Configuring $CAN for a bitrate of $CAN_BITRATE bits/s"
 
 function finish
 {
   ip link set $CAN down
-  echo 1 > /sys/class/gpio/gpio$GPIO_CAN_STBY/value
-  echo $GPIO_CAN_STBY > /sys/class/gpio/unexport
 }
 trap finish EXIT
 
-echo $GPIO_CAN_STBY > /sys/class/gpio/export
-echo out > /sys/class/gpio/gpio$GPIO_CAN_STBY/direction
-echo 0 > /sys/class/gpio/gpio$GPIO_CAN_STBY/value
-
 ip link set $CAN type can bitrate $CAN_BITRATE
 ip link set $CAN up
-ifconfig $CAN txqueuelen 1000
+ifconfig $CAN txqueuelen 64
 
-sudo -u fio ifconfig $CAN
+sudo -u pika ifconfig $CAN
 
 echo "CAN_MTU     = $CAN_MTU"
 echo "CAN_NODE_ID = $CAN_NODE_ID"
 
-sudo -u fio sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
+sudo -u pika sudo docker run -it -u 0 --network host pika_spark_yakut_can yakut --transport "CAN(can.media.socketcan.SocketCANMedia('$CAN',$CAN_MTU),$CAN_NODE_ID)" monitor
